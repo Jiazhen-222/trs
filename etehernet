@@ -1,1 +1,57 @@
-fbfdhrt
+//IT switch
+
+en
+conf t
+int range fa0/1 - 2
+switchport mode trunk
+shutdown
+channel-group 1 mode desirable
+no shut
+int port-channel 1
+switchport mode trunk
+
+int range fa0/3 - 4
+switchport mode trunk
+shutdown
+channel-group 4 mode desirable
+no shutdown
+interface port-channel 4
+switchport mode trunk
+
+//logi switch
+en 
+conf t
+int range fa0/1 - 2
+switchport mode trunk
+shutdown
+channel-group 2 mode desirable
+no shut
+int port-channel 2
+switchport mode trunk
+
+int range fa0/3 - 4
+switchport mode trunk
+shutdown
+channel-group 5 mode desirable
+no shutdown
+interface port-channel 5
+switchport mode trunk
+
+//sales switch
+en 
+conf t
+int range fa0/1 - 2
+switchport mode trunk
+shutdown
+channel-group 3 mode desirable
+no shut
+int port-channel 3
+switchport mode trunk
+
+int range fa0/3 - 4
+switchport mode trunk
+shutdown
+channel-group 6 mode desirable
+no shutdown
+interface port-channel 6
+switchport mode trunk
