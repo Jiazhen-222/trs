@@ -1,0 +1,106 @@
+//MS1
+en
+conf t
+ip routing
+
+int fa0/24
+no switchport
+ip add 24.0.0.2 255.255.255.252
+exit
+
+int port-channel 7
+no switchport
+ip add 22.0.0.1 255.255.255.252
+exit
+
+router ospf 1
+network 24.0.0.0 255.255.255.0 area 0
+network 22.0.0.0 255.255.255.0 area 0
+network 205.72.10.0 255.255.255.0 area 0
+network 205.72.20.0 255.255.255.0 area 0
+network 205.72.30.0 255.255.255.0 area 0
+end
+copy run start
+
+//MS2
+en
+conf t
+ip routing
+
+int fa0/24
+no switchport
+ip add 23.0.0.2 255.255.255.252
+exit
+
+int port-channel 7
+no switchport
+ip add 22.0.0.2 255.255.255.252
+exit
+
+router ospf 2
+network 23.0.0.0 255.255.255.0 area 0
+network 22.0.0.0 255.255.255.0 area 0
+network 205.72.10.0 255.255.255.0 area 0
+network 205.72.20.0 255.255.255.0 area 0
+network 205.72.30.0 255.255.255.0 area 0
+end
+copy run start
+
+//router melaka
+en
+conf t
+ip routing
+
+int g0/0
+ip address 24.0.0.1 255.255.255.252
+no shut
+int g0/1
+ip address 23.0.0.1 255.255.255.252
+no shut
+exit
+
+int se0/0/0
+ip add 30.0.0.1 255.255.255.252
+encapsulation frame-relay
+frame-relay interface-dlci 102
+ip ospf network broadcast
+no shut
+
+router ospf 3
+network 24.0.0.0 255.255.255.0 area 0
+network 23.0.0.0 255.255.255.0 area 0
+network 30.0.0.0 255.255.255.0 area 0
+
+end
+copy run start
+
+//router kl xxxx
+en
+conf t
+ip routing
+
+int g0/0
+no shut
+ip add 13.0.0.1 255.255.255.252
+int g0/1
+no shut
+ip add 14.0.0.1 255.255.255.252
+exit
+??????????????????
+
+int s0/1/0
+ip add 30.0.0.2 255.255.255.252
+encapsulation frame-relay
+frame-relay interface-dlci 201
+ip ospf network broadcast
+no sh
+
+
+router ospf 3
+network 30.0.0.0 255.255.255.0 area 0
+network 205.72.40.0 255.255.255.0 area 0
+network 205.72.50.0 255.255.255.0 area 0
+network 205.72.60.0 255.255.255.0 area 0
+
+end
+copy run start
