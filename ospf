@@ -74,30 +74,28 @@ network 30.0.0.0 255.255.255.0 area 0
 end
 copy run start
 
-//router kl xxxx
+//router kl 
 en
 conf t
 ip routing
 
 int g0/0
 no shut
-ip add 13.0.0.1 255.255.255.252
-int g0/1
-no shut
-ip add 14.0.0.1 255.255.255.252
+ip add 21.0.0.1 255.255.255.252
 exit
-??????????????????
+
 
 int s0/1/0
 ip add 30.0.0.2 255.255.255.252
 encapsulation frame-relay
 frame-relay interface-dlci 201
 ip ospf network broadcast
-no sh
+no shut
 
 
 router ospf 3
 network 30.0.0.0 255.255.255.0 area 0
+network 21.0.0.0 255.255.255.0 area 0
 network 205.72.40.0 255.255.255.0 area 0
 network 205.72.50.0 255.255.255.0 area 0
 network 205.72.60.0 255.255.255.0 area 0
