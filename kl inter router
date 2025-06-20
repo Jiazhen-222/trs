@@ -1,0 +1,61 @@
+
+en
+conf t
+hostname Switch_KL
+
+vlan 3
+name Server
+vlan 40
+name Engineering_Department
+vlan 50
+name Finance_Department
+vlan 60
+name Sales_Department
+exit
+
+int fa0/1
+switchport mode access
+switchport access vlan 40
+int fa0/2
+switchport mode access
+switchport access vlan 50
+int fa0/3
+switchport mode access
+switchport access vlan 60
+int fa0/4
+switchport mode access
+switchport access vlan 3
+
+
+int range fa0/24
+switchport mode trunk
+
+//router KL1
+en
+conf t
+hostname Router_KL
+int g0/0
+no shut
+exit
+
+int g0/0.40
+encapsulation dot1q 40
+ip add 205.72.40.1 255.255.255.0
+ip helper-address 205.72.3.10
+exit
+
+int g0/0.50
+encapsulation dot1q 50
+ip add 205.72.50.1 255.255.255.0
+ip helper-address 205.72.3.10
+exit
+
+int g0/0.60
+encapsulation dot1q 60
+ip add 205.72.60.1 255.255.255.0
+ip helper-address 205.72.3.10
+exit
+
+
+ServerIP：205.72.3.10
+Default Gateway:205.72.3.1
