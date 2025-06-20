@@ -41,7 +41,12 @@ vtp domain lmg.com
 vtp version 2
 int range fa0/1, fa0/3, fa0/5
 switchport trunk encapsulation dot1q
-switchport mode trunk exit
+switchport mode trunk 
+exit
+
+int fa0/7
+switchport mode access
+switchport access vlan 2
 
 int vlan 10
 ip helper-address 205.72.2.10
@@ -153,17 +158,4 @@ switchport access vlan 100
 end 
 copy run start
 
-  **//Server**
-en
-config t
-hostname Server_Switch
-vlan 2
-name Server
-exit
 
-int fa0/2
-switchport mode trunk
-
-int fa0/1
-switchport mode trunk
-switchport trunk native vlan 2
