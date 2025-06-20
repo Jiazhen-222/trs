@@ -55,3 +55,105 @@ channel-group 6 mode desirable
 no shutdown
 interface port-channel 6
 switchport mode trunk
+
+//MS1
+en 
+conf t
+
+int range fa0/1 - 2
+switchport trunk encapsulation dot1q
+switchport mode trunk
+shutdown
+channel-group 1 mode desirable
+no shutdown
+interface port-channel 1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+int range fa0/3 - 4
+switchport trunk encapsulation dot1q
+switchport mode trunk
+shutdown
+channel-group 2 mode desirable
+no shutdown
+interface port-channel 2
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+int range fa0/5 - 6
+switchport trunk encapsulation dot1q
+switchport mode trunk
+shutdown
+channel-group 3 mode desirable
+no shutdown
+interface port-channel 3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+int range fa0/22 - 23
+switchport trunk encapsulation dot1q
+switchport mode trunk
+shutdown
+channel-group 7 mode desirable
+no shutdown
+interface port-channel 7
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+int range fa0/7
+switchport trunk encapsulation dot1q
+switchport mode trunk
+shutdown
+channel-group 8 mode desirable
+no shutdown
+interface port-channel 8
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+end 
+copy run start
+
+//MS2
+en
+conf t
+hostname MS2
+
+int range fa0/1 - 2
+switchport trunk encapsulation dot1q
+switchport mode trunk
+shutdown
+channel-group 4 mode desirable
+no shutdown
+interface port-channel 4
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+int range fa0/3 - 4
+switchport trunk encapsulation dot1q
+switchport mode trunk
+shutdown
+channel-group 5 mode desirable
+no shutdown
+interface port-channel 5
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+int range fa0/5 - 6
+switchport trunk encapsulation dot1q
+switchport mode trunk
+shutdown
+channel-group 6 mode desirable
+no shutdown
+interface port-channel 6
+switchport trunk encapsulation dot1q
+switchport mode trunk
+
+int range fa0/22 - 23
+switchport trunk encapsulation dot1q
+switchport mode trunk
+shutdown
+channel-group 7 mode desirable
+no shutdown
+interface port-channel 7
+switchport trunk encapsulation dot1q
+switchport mode trunk
