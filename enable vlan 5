@@ -1,0 +1,8 @@
+en
+conf t
+vlan 5
+name dhcp
+int vlan 5
+ip add 205.72.5.1 255.255.255.0
+no shut
+exit
