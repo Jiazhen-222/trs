@@ -1,0 +1,26 @@
+en 
+conf t
+int range fa0/5 - 10
+switchport port-security
+switchport mode access
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+end
+
+//MS1
+en
+conf t
+ip dhcp snooping
+ip dhcp snooping vlan 5
+ip arp inspection vlan 5 
+
+int fa0/7
+ip dhcp snooping trust
+ip arp inspection trust
+exit
+
+int fa0/20
+ip dhcp snooping limit rate 100
+end
+copy run start
