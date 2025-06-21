@@ -1,0 +1,43 @@
+//MS1
+
+en 
+conf t
+int port-channel 1
+spanning-tree vlan 10-30 root primary
+
+int port-channel 2
+spanning-tree vlan 10-30 root primary
+
+int port-channel 3
+spanning-tree vlan 10-30 root primary
+
+end 
+copy run start
+
+//MS2
+en 
+conf t
+int port-channel 4
+spanning-tree vlan 10-30 root primary
+
+int port-channel 5
+spanning-tree vlan 10-30 root primary
+
+int port-channel 6
+spanning-tree vlan 10-30 root primary
+
+end 
+copy run start
+
+//IT switch
+en 
+conf t
+int range fa0/5 - 10
+spanning-tree portfast
+spanning-tree bpduguard enable
+exit
+
+spanning-tree portfast default
+spanning-tree portfast bpduguard default
+end 
+copy run start
