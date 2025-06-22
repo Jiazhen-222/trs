@@ -19,58 +19,26 @@ default-router 205.72.30.1
 
 interface vlan 10
  ip address 205.72.10.1 255.255.255.0
- ip helper-address 205.72.2.1
+ ip helper-address 205.72.2.10
  no shutdown
 
 
 interface vlan 20
  ip address 205.72.20.1 255.255.255.0
- ip helper-address 205.72.2.1
+ ip helper-address 205.72.2.10
  no shutdown
 
 interface vlan 30
  ip address 205.72.30.1 255.255.255.0
- ip helper-address 205.72.2.1
+ ip helper-address 205.72.2.10
  no shutdown
 
-
-//MS2
-en
-conf t
-ip dhcp excluded-address 205.72.10.1 205.72.10.10
-ip dhcp excluded-address 205.72.20.1 205.72.20.10
-ip dhcp excluded-address 205.72.30.1 205.72.30.10
-
-ip dhcp pool vlan10
-network 205.72.10.0 255.255.255.0
-default-router 205.72.10.1
-ip dhcp pool vlan20
-network 205.72.20.0 255.255.255.0
-default-router 205.72.20.1
-ip dhcp pool vlan30
-network 205.72.30.0 255.255.255.0
-default-router 205.72.30.1
-
-interface vlan 10
- ip address 205.72.10.1 255.255.255.0
- ip helper-address 205.72.2.1
- no shutdown
-
-
-interface vlan 20
- ip address 205.72.20.1 255.255.255.0
- ip helper-address 205.72.2.1
- no shutdown
-
-interface vlan 30
- ip address 205.72.30.1 255.255.255.0
- ip helper-address 205.72.2.1
- no shutdown
 
 
 
 
 //switych kl
+en
 conf t
 ip dhcp excluded-address 205.72.40.1 205.72.40.10
 ip dhcp excluded-address 205.72.50.1 205.72.50.10
@@ -90,14 +58,17 @@ ip dhcp pool vlan60
 
 interface vlan 40
  ip address 205.72.40.1 255.255.255.0
+ip helper-address 205.72.3.10
  no shutdown
 
 interface vlan 50
  ip address 205.72.50.1 255.255.255.0
+ip helper-address 205.72.3.10
  no shutdown
 
 interface vlan 60
  ip address 205.72.60.1 255.255.255.0
+ ip helper-address 205.72.3.10
  no shutdown
 
 end
