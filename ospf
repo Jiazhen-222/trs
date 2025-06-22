@@ -82,6 +82,9 @@ ip routing
 int g0/0
 no shut
 ip add 21.0.0.1 255.255.255.252
+int g0/1
+ip add 20.0.0.1 255.255.255.252
+no shut
 exit
 
 
