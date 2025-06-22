@@ -27,7 +27,7 @@ switchport mode access
 switchport access vlan 3
 
 
-int range fa0/24
+int range fa0/5
 switchport mode trunk
 
 //router KL1
