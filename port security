@@ -36,7 +36,7 @@ ip dhcp snooping trust
 ip arp inspection trust
 exit
 
-int fa0/20
+int fa0/25
 ip dhcp snooping limit rate 100
 end
 copy run start
