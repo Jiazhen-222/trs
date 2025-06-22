@@ -1,3 +1,5 @@
+//all swirtch
+
 en 
 conf t
 int range fa0/5 - 10
