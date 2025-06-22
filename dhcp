@@ -74,35 +74,35 @@ interface vlan 30
  no shutdown
 
 //switych kl
-en
 conf t
 ip dhcp excluded-address 205.72.40.1 205.72.40.10
 ip dhcp excluded-address 205.72.50.1 205.72.50.10
 ip dhcp excluded-address 205.72.60.1 205.72.60.10
 
 ip dhcp pool vlan40
-network 205.72.40.0 255.255.255.0
-default-router 205.72.40.1
+ network 205.72.40.0 255.255.255.0
+ default-router 205.72.40.1
+
 ip dhcp pool vlan50
-network 205.72.50.0 255.255.255.0
-default-router 205.72.50.1
+ network 205.72.50.0 255.255.255.0
+ default-router 205.72.50.1
+
 ip dhcp pool vlan60
-network 205.72.60.0 255.255.255.0
-default-router 205.72.60.1
+ network 205.72.60.0 255.255.255.0
+ default-router 205.72.60.1
 
 interface vlan 40
  ip address 205.72.40.1 255.255.255.0
- ip helper-address 205.72.3.1
  no shutdown
-
 
 interface vlan 50
  ip address 205.72.50.1 255.255.255.0
- ip helper-address 205.72.3.1
  no shutdown
 
 interface vlan 60
  ip address 205.72.60.1 255.255.255.0
- ip helper-address 205.72.3.1
  no shutdown
+
+end
+copy running-config startup-config
 
