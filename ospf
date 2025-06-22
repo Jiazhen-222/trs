@@ -85,7 +85,7 @@ ip add 21.0.0.1 255.255.255.252
 exit
 
 
-int s0/1/0
+int s0/0/0
 ip add 30.0.0.2 255.255.255.252
 encapsulation frame-relay
 frame-relay interface-dlci 201
