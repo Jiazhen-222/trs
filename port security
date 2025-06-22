@@ -9,13 +9,14 @@ switchport port-security maximum 1
 switchport port-security mac-address sticky
 switchport port-security violation shutdown
 end
+copy run start
 
 //MS1
 en
 conf t
 ip dhcp snooping
-ip dhcp snooping vlan 5
-ip arp inspection vlan 5 
+ip dhcp snooping vlan 2
+ip arp inspection vlan 2
 
 int fa0/7
 ip dhcp snooping trust
