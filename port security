@@ -1,26 +1,18 @@
-//all swirtch
 
-en 
-conf t
-int range fa0/1, fa0/2, fa0/3, fa0/4, fa0/5, fa0/6
-switchport port-security
-switchport mode access
-switchport port-security maximum 1
-switchport port-security mac-address sticky
-switchport port-security violation shutdown
-end
-copy run start
 
 //switc it-sales
 
 en 
 conf t
-int range fa0/1,fa0/2,fa0/5, fa0/6, fa0/7, fa0/8, fa0/9, fa0/10
-switchport port-security
+int range fa0/5-10
 switchport mode access
+switchport port-security
 switchport port-security maximum 1
 switchport port-security mac-address sticky
 switchport port-security violation shutdown
+
+
+
 end
 copy run start
 
