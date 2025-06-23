@@ -158,24 +158,4 @@ switchport access vlan 100
 end 
 copy run start
 
-//router mlc
-en 
-conf t
-int g/0
-no shut
-int g0/0.10
-encapsulation dot1q 10
-ip address 205.72.10.1 255.255.255.0
-exit
-
-int g0/0.20
-encapsulation dot1q 20
-ip address 205.72.20.1 255.255.255.0
-exit
-
-
-int g0/0.30
-encapsulation dot1q 30
-ip address 205.72.30.1 255.255.255.0
-exit
 
