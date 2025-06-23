@@ -14,8 +14,8 @@ ip add 22.0.0.1 255.255.255.252
 exit
 
 router ospf 1
-network 24.0.0.0 255.255.255.0 area 0
-network 22.0.0.0 255.255.255.0 area 0
+network 24.0.0.2 255.255.255.0 area 0
+network 22.0.0.1 255.255.255.0 area 0
 network 205.72.10.0 255.255.255.0 area 0
 network 205.72.20.0 255.255.255.0 area 0
 network 205.72.30.0 255.255.255.0 area 0
@@ -38,11 +38,11 @@ ip add 22.0.0.2 255.255.255.252
 exit
 
 router ospf 2
-network 23.0.0.0 255.255.255.0 area 0
-network 22.0.0.0 255.255.255.0 area 0
-network 205.72.10.0 255.255.255.0 area 0
-network 205.72.20.0 255.255.255.0 area 0
-network 205.72.30.0 255.255.255.0 area 0
+ network 23.0.0.2 0.0.0.0 area 0
+ network 22.0.0.2 0.0.0.0 area 0
+ network 205.72.10.0 0.0.0.255 area 0
+ network 205.72.20.0 0.0.0.255 area 0
+ network 205.72.30.0 0.0.0.255 area 0
 end
 copy run start
 
